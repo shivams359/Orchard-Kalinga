@@ -1,0 +1,27 @@
+package collectionPractise;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.swing.plaf.basic.BasicComboBoxUI.ItemHandler;
+
+public class CollectionPractise {
+
+	public static void main(String[] args) {
+		
+		ArrayList<String> name = new ArrayList<String>();
+		
+		name.add("Nagendra");
+		name.add("Shivam");
+		name.add("Srishti");
+		name.add("Nirakh");
+		
+		Iterator it = name.iterator();
+		while(it.hasNext()){
+			System.out.println(it.next());
+		}
+		
+
+	}
+
+}

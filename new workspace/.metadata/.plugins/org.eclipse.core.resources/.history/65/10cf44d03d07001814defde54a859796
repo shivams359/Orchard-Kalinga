@@ -1,0 +1,13 @@
+package com.mindtree.questionapi.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+
+@Controller
+public class QuestionController {
+	
+	@Autowired
+	QuestionService questionService;
+
+}

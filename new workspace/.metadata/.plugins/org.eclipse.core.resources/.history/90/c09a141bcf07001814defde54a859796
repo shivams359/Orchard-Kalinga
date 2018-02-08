@@ -1,0 +1,25 @@
+package com.mindtree.questionapi.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.mindtree.questionapi.entity.Question;
+import com.mindtree.questionapi.service.QuestionService;
+
+@Controller
+public class QuestionController {
+	
+	@Autowired
+	QuestionService questionService;
+	
+	@RequestMapping(value = "/getallquestions", method = RequestMethod.GET)
+	public List<Question> listQuestion()  {
+		List<Question> listQuestion = questionService.getQuestion();
+		return listQuestion; 
+    }
+
+}

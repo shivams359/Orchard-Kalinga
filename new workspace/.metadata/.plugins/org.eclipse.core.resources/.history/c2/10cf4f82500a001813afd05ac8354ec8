@@ -1,0 +1,15 @@
+package com.mindtree.Exception;
+
+
+
+public class Main {
+	public void_ x() {
+		
+	}
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

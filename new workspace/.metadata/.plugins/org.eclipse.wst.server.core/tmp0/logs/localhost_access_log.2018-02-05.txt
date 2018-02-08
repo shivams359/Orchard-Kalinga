@@ -1,0 +1,6 @@
+127.0.0.1 - - [05/Feb/2018:14:38:50 +0530] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [05/Feb/2018:14:38:54 +0530] "GET /updatedelete/ HTTP/1.1" 200 57
+0:0:0:0:0:0:0:1 - - [05/Feb/2018:14:39:09 +0530] "GET /updatedelete/getTrack HTTP/1.1" 200 12
+0:0:0:0:0:0:0:1 - - [05/Feb/2018:14:39:22 +0530] "GET /updatedelete/getCapability HTTP/1.1" 200 12
+0:0:0:0:0:0:0:1 - - [05/Feb/2018:14:39:37 +0530] "GET /updatedelete/getCampusMind HTTP/1.1" 200 45
+0:0:0:0:0:0:0:1 - - [05/Feb/2018:14:46:23 +0530] "POST /updatedelete/addCampusMind HTTP/1.1" 200 14

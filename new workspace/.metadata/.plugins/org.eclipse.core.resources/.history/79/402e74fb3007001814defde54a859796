@@ -1,0 +1,5 @@
+package com.mindtree.questionapi.dao;
+
+public interface QuestionDAO {
+
+}

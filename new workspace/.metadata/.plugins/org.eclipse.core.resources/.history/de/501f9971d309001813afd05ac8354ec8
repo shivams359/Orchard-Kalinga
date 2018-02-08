@@ -1,0 +1,78 @@
+package com.mindtree.omsProject.dao.DaoImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.mindtree.omsProject.dao.CampusMindDao;
+import com.mindtree.omsProject.entity.CampusMind;
+
+@Repository
+@Transactional
+public class CampusMindDaoImpl implements CampusMindDao {
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	public Session getSession() {
+		return this.sessionFactory.getCurrentSession();
+	}
+	
+	public boolean addcampusmind(CampusMind campusMind) {
+	System.out.println("DAO");
+		try{
+			sessionFactory.openSession().saveOrUpdate(campusMind);
+			System.out.println("done");
+			return true;
+		}catch(HibernateException e){
+			//sessionFactory.openSession().saveOrUpdate(campusMind);
+			System.out.println("exception");
+			return false ;
+		}
+	}
+
+	public List<CampusMind> getcampusmind() {
+	
+		List<CampusMind> campusminds = new ArrayList<CampusMind>() ;
+		try{
+				campusminds = sessionFactory.getCurrentSession().createQuery("from CampusMind").list() ;
+				return campusminds ;
+			}catch(HibernateException e){
+				campusminds = sessionFactory.openSession().createQuery("from CampusMind").list() ;
+				return campusminds ;
+			}
+	}
+
+	public void deleteCampusMind(int mid) {
+		
+		CampusMind campusMind = getSession().load(CampusMind.class, new Integer(mid));
+		if(null!=campusMind) {
+			getSession().delete(campusMind);
+		} else {
+			System.out.println("can not delete");
+		}
+		
+		
+	}
+
+	public CampusMind updateCampusMind(CampusMind campusMind) {
+CampusMind campusMind1 = null;
+		
+		if(null!=campusMind) {
+			System.out.println("song is fetched");
+			getSession().update(campusMind);
+		} else{
+			System.out.println("Wrong id of Campusmind");
+		}
+		song1 = getSession().load(Song.class, new Integer(song.getId()));
+		return song1;
+
+}

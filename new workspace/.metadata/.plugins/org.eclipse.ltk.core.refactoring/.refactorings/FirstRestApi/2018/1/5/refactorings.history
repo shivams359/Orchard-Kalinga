@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;FirstRestApi/src/main/java/com/mindtree/firstrestapi/service/SongServiceImpl&apos; to &apos;ServiceImpl&apos;" description="Rename resource &apos;SongServiceImpl&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/mindtree/firstrestapi/service/SongServiceImpl" name="ServiceImpl" stamp="1517343204585" updateReferences="true"/>
+</session>

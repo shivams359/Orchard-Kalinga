@@ -1,0 +1,5 @@
+package com.mindtree.questionapi.entity;
+
+public class Question {
+
+}

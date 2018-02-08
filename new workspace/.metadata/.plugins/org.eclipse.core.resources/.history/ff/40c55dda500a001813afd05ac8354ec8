@@ -1,0 +1,22 @@
+package com.mindtree.Exception;
+
+
+
+public class Main {
+	public void x() {
+		
+	}
+	
+	public void y() {
+		
+	}
+	public void z() {
+		
+	}
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

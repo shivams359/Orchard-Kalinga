@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;songname&apos; in &apos;com.mindtree.questionapi.entity.Question&apos; to &apos;questionname&apos;&#x0D;&#x0A;- Original project: &apos;questionapi&apos;&#x0D;&#x0A;- Original element: &apos;com.mindtree.questionapi.entity.Question.songname&apos;&#x0D;&#x0A;- Renamed element: &apos;com.mindtree.questionapi.entity.Question.questionname&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;songname&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src\/main\/java&lt;com.mindtree.questionapi.entity{Question.java[Question^songname" name="questionname" references="true" setter="false" stamp="1517481976728" textual="false" version="1.0"/>
+</session>
