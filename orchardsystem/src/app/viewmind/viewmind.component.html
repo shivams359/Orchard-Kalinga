@@ -1,0 +1,19 @@
+
+<div class="container">
+   <div class="col-sm-6">          
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>MID</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let mind of campusmind">
+    <td>{{mind.mid}}</td>
+    <td>{{mind.name}}</td>
+  </tr>
+    </tbody>
+  </table>
+   </div>
+</div>

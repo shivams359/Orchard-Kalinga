@@ -1,0 +1,11 @@
+.vl {
+    border-left: 1px solid #0080ff;
+    height: 500px;
+}
+.left{
+ padding-left : 180px;
+ float : left;
+}
+.list-group{
+    font-size: 30px;
+}

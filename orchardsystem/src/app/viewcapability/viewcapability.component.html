@@ -1,0 +1,19 @@
+
+<div class="container">
+   <div class="col-sm-8">          
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>CID</th>
+        <th>Capability Name</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor = "let ability of capability">
+    <td>{{ability.cid}}</td>
+    <td>{{ability.capability}}</td>
+  </tr>
+    </tbody>
+  </table>
+   </div>
+</div>
