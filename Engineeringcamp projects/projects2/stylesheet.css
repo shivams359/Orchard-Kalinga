@@ -1,0 +1,37 @@
+*{
+    margin:0;
+ }
+.wrapper{
+    width:800px;
+    background:#eee;
+    margin: 0 auto 0 auto;
+}
+.heading{
+    height:100px;
+    background:blueviolet;
+    padding:20px;
+    text-align: center;
+}
+.navigation{
+    height:50px;
+    backgroun:lightgreen;
+}
+.content{
+    min-height: 400px;
+    background:#ddd;
+    width:550px;
+    float: left;
+}
+.sidebar{
+    width:250px;
+    float:right;
+    background:lightblue;
+    min-height:400px;
+}
+.footer{
+    clear:both;
+    background:black;
+    text-align: center;
+    height: 40px;
+    color:white;
+}

@@ -1,0 +1,52 @@
+.wrapper{
+    height:100%;
+    width:100%;
+}
+.header{
+    height:15vh;
+    background-color: black;
+    color:white;
+}
+a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1.7cm;
+}
+a:hover, a:active {
+    background-color: red;
+}
+addchild.main{
+    height:80vh;
+    background-color: grey;
+}
+.footer{
+    height:vh;
+    background-color:black;
+    color:white;
+    text-align: center;
+}
+.side
+{
+    margin: 50px;
+}
+.boxContainer {
+    margin-left: 34%;
+    margin-top: 12%;
+    display: table;
+    vertical-align: bottom;
+}
+.save{
+    width:5cm;
+    height:1cm;
+}
+.submit{
+    width:5cm;
+    height:1cm;
+}
+.main{
+    text-si
+}

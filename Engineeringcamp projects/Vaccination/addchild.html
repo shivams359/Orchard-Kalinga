@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="vaccination.css" rel="stylesheet">
+    <link href= "D:\Engineeringcamp projects\node_modules\bootstrap\dist\css\bootstrap.min.css">
+    
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <a href="vaccination.html">Home</a>
+            <a href="addchild.html">Add Child</a>
+            <a href="AdministerVaccinationsofChildren.html">Administer Vaccinations of Children</a>
+        </div>
+        <div class="main"><br>
+        <pre>
+         Name of child: <input type="text" name="fullname" id="fullname"><br><br>
+         DOB:           <input type="date" name="bday" id="bday"><br><br>
+         Gender:        <input class="w3-radio" type="radio" name="gender" value="male" checked>
+                        <label>Male</label>
+                        <input class="w3-radio" type="radio" name="gender" value="female">
+                        <label>Female</label>
+                        <input class="w3-radio" type="radio" name="gender" value="disabled">
+                        <label>Don't know (Disabled)</label><br><br>
+         Place of birth:<input type="text" name="birthplace"><br><br> 
+         Hospital  Name:<input type="text" name="hname"><br><br> 
+         Blood Group:   <select>
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>AB+</option>
+                        <option>AB-</option>
+                        <option>O+</option>
+                        <option>O-</option>
+                        <option>Unknown</option>
+                  </select><br><br>
+         Height at the time of birth:<input type="number" name="height"><br><br>
+         Weight at the time of birth:<input type="number" name="Weight"><br><br>
+            <div class="boxContainer">
+                 <button class="save" id ="save">Save</button>
+                    <button class="submit" id ="cancel">Cancel</button>
+                    <button class="submit" id ="submit">Submit</button>
+            </div>
+        </pre>
+        </div>
+        <script src="vaccination.js"></script>
+</body>
+
+</html>
+            
+       
