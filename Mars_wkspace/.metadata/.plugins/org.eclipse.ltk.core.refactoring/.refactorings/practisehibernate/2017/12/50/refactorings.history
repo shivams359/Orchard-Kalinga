@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;practisehibernate/src/main/java/com/mindtree/common&apos; to &apos;practisehibernate&apos;" description="Rename resource &apos;common&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/mindtree/common" name="practisehibernate" stamp="1513315364773" updateReferences="true"/>
+</session>

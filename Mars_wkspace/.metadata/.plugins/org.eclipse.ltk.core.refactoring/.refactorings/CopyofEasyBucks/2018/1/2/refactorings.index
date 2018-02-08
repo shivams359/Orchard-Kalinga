@@ -1,0 +1,10 @@
+1515436392574	Rename type 'UserDaoImpl'
+1515438639611	Rename type 'EasyDao'
+1515438672221	Rename type 'EasyDaoImp'
+1515438910584	Rename type 'EasyService'
+1515438935520	Rename type 'EasyServiceImp'
+1515438948977	Rename field 'easyDaoImp'
+1515471202431	Rename resource 'services'
+1515477143668	Delete element
+1515602277398	Rename field 'roleServiceImpl'
+1515602341645	Rename field 'userRoleDaoImpl'

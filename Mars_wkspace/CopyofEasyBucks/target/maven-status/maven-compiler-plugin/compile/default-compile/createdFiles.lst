@@ -1,0 +1,12 @@
+com\mindtree\easybucks\dao\UserDao.class
+com\mindtree\easybucks\service\UserRoleServiceImpl.class
+com\mindtree\easybucks\controller\SignupController.class
+com\mindtree\easybucks\service\EasyService\UserService.class
+com\mindtree\easybucks\dao\DaoImp\UserDaoImpl.class
+com\mindtree\easybucks\dao\UserRoleDao.class
+com\mindtree\easybucks\service\EasyService\UserRoleService.class
+com\mindtree\easybucks\dao\DaoImp\UserRoleDaoImpl.class
+com\mindtree\easybucks\controller\UserRoleController.class
+com\mindtree\easybucks\entity\User.class
+com\mindtree\easybucks\service\UserServiceImp.class
+com\mindtree\easybucks\entity\UserRole.class

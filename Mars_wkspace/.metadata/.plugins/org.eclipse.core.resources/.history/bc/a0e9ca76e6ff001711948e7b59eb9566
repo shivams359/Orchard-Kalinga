@@ -1,0 +1,214 @@
+import entity.Constituencies;
+
+public class main {
+
+	public static void main(String[] args) {
+		 static Constituencies constituencies;
+
+		    public static void main(String[] args) {
+
+		        Scanner in = new Scanner(System.in);
+
+		        while (true) {
+		            System.out.println("enter your choice");
+		            System.out.println("1: Add Constituency");
+		            System.out.println("2: Add Candidtes");
+		            System.out.println("3: Display Candidates details for a given ConstutuencyId ");
+		            System.out.println("4: Display Candidates name, Constuency Name for a given party ");
+		            System.out.println("5: Display Candidates for given constituency ");
+		            System.out.println("6: Display Candidates for given constituency,given constituency ");
+		            
+		            
+		            int i = in.nextInt();
+		            switch (i) {
+		            case 1:
+		                System.out.println("enter Constituency Name");
+		                String name = in.next();
+		                addConstituency(name.toLowerCase());
+		                break;
+		            case 2:
+		                System.out.println("enter Candidate Name");
+		                String cname = in.next();
+		                System.out.println("enter Party Name");
+		                String pname = in.next();
+		                System.out.println("enter Constituency Name");
+		                String conName = in.next();
+		                constituency = getConstituency(conName.toLowerCase());
+		                Candidates candidates = new Candidates();
+		                candidates.setName(cname.toLowerCase());
+		                candidates.setParty(pname.toLowerCase());
+		                candidates.setConstituency(constituency);
+		                addCandidate(candidates);
+		                break;
+		                
+		            case 3:System.out.println("enter ConstuencyId");
+		            int id=in.nextInt();
+		            getCandidateById(id);
+		            break;
+		            
+		            case 4:System.out.println("enter Party");
+		            String party = in.next();
+		            getCandidateContituencyNameforParty(party.toLowerCase());
+		            break;
+		            
+		            case 5:System.out.println("enter Constituency Name");
+		            String conname = in.next();
+		            getCandidateByConstituencyName(conname.toLowerCase());
+		            break;
+		            
+		            case 6:System.out.println("enter Party Name");
+		            pname = in.next();
+		            System.out.println("enter Constituency Name");
+		            conName = in.next();
+		            getCandidateForPartyAndConstituency(pname.toLowerCase(),conName.toLowerCase());
+		            default:
+		                System.exit(0);
+		            }
+
+		        }
+
+		    }
+
+		    
+
+
+
+
+		    private static void getCandidateForPartyAndConstituency(String pname, String conName) {
+		        Session session = new Configuration().configure().buildSessionFactory().openSession();
+
+		        Transaction t = session.beginTransaction();
+		        
+		        constituency=new Constituency();
+		        constituency=getConstituency(conName);
+		        
+		        String select = "from Candidates where constituency= :constituency and party= :party";
+		        Query query = session.createQuery(select);
+		        query.setParameter("constituency", constituency);
+		        query.setParameter("party", pname);
+		        List<Candidates> candidates=(List<Candidates>) query.list();
+		        System.out.println("Name");
+		        for(Candidates candida:candidates)
+		        System.out.println(candida.getName());
+		    }
+
+
+
+
+
+
+		    private static void getCandidateByConstituencyName(String conname) {
+		        Session session = new Configuration().configure().buildSessionFactory().openSession();
+
+		        Transaction t = session.beginTransaction();
+		        constituency=new Constituency();
+		        constituency=getConstituency(conname);
+		        String select = "from Candidates where constituency= :constituency";
+		        Query query = session.createQuery(select);
+		        query.setParameter("constituency", constituency);
+		        List<Candidates> candidates=(List<Candidates>) query.list();
+		        System.out.println("Name");
+		        for(Candidates candida:candidates)
+		        System.out.println(candida.getName());
+		        
+		        
+		    }
+
+
+
+		    private static void getCandidateContituencyNameforParty(String party) {
+		        Session session = new Configuration().configure().buildSessionFactory().openSession();
+
+		        Transaction t = session.beginTransaction();
+		        
+		        String select = "from Candidates where party= :party";
+		        Query query = session.createQuery(select);
+		        query.setParameter("party", party);
+		        List<Candidates> candidates=(List<Candidates>) query.list();
+		        System.out.println("Candidate Name"+"\t\t"+"Constituency Name");
+		        for(Candidates candida:candidates)
+		        System.out.println(candida.getName()+"\t\t"+candida.getConstituency().getName());
+		        
+		        
+		    }
+
+
+
+		    private static void addConstituency(String name) {
+
+		        constituency = new Constituency();
+		        constituency.setName(name);
+		        Session session = new Configuration().configure().buildSessionFactory().openSession();
+
+		        Transaction t = session.beginTransaction();
+
+		        session.persist(constituency);
+
+		        t.commit();
+		        session.close();
+		        System.out.println("successfully saved");
+		    }
+
+		    private static Constituency getConstituency(String name) {
+
+		        Session session = new Configuration().configure().buildSessionFactory().openSession();
+
+		        Transaction t = session.beginTransaction();
+		        
+		        String select = "from Constituency where name= :name";
+		        Query query = session.createQuery(select);
+		        query.setParameter("name", name);
+		        Constituency constituency=(Constituency) query.uniqueResult();
+		        System.out.println(constituency.getId());
+		        return constituency;
+		    }
+
+		    private static void addCandidate(Candidates candidates) {
+		        
+		        Session session = new Configuration().configure().buildSessionFactory().openSession();
+
+		        Transaction t = session.beginTransaction();
+
+		        session.persist(candidates);
+
+		        t.commit();
+		        session.close();
+		        System.out.println("successfully saved");
+		    }
+		    
+		    private static void getCandidateById(int id) {
+		        
+		        Session session = new Configuration().configure().buildSessionFactory().openSession();
+
+		        Transaction t = session.beginTransaction();
+		        constituency=new Constituency();
+		        constituency=getConstituencyById(id);
+		        String select = "from Candidates where constituency= :constituency";
+		        Query query = session.createQuery(select);
+		        query.setParameter("constituency", constituency);
+		        List<Candidates> candidates=(List<Candidates>) query.list();
+		        System.out.println("Name"+"\t"+"Constituency Name"+"\t"+"Party");
+		        for(Candidates candida:candidates)
+		        System.out.println(candida.getName()+"\t"+candida.getConstituency().getName()+"\t"+candida.getParty());
+		        
+		        
+		    }
+
+
+
+		    private static Constituency getConstituencyById(int id) {
+		        Session session = new Configuration().configure().buildSessionFactory().openSession();
+
+		        Transaction t = session.beginTransaction();
+		        
+		        String select = "from Constituency where id= :id";
+		        Query query = session.createQuery(select);
+		        query.setParameter("id", id);
+		        Constituency constituency=(Constituency) query.uniqueResult();
+		        System.out.println(constituency.getName());
+		        return constituency;
+		    }
+
+	}
+
+}

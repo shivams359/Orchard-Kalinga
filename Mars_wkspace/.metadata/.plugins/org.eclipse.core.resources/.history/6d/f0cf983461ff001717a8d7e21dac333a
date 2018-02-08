@@ -1,0 +1,5 @@
+package com.mindtree.CandidatesConstituencies.entity;
+
+public @interface Entity {
+
+}

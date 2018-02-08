@@ -1,0 +1,20 @@
+package com.mindtree.omsProject.dao.DaoImpl;
+
+import java.util.List;
+
+import com.mindtree.omsProject.dao.CapabilityDao;
+import com.mindtree.omsProject.entity.Capability;
+
+public class CapabilityDaoImpl implements CapabilityDao {
+
+	public boolean addcapability(Capability capability) {
+		
+		return false;
+	}
+
+	public List<Capability> getcapability() {
+		
+		return null;
+	}
+
+}

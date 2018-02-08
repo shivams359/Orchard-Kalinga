@@ -1,0 +1,5 @@
+package com.mindtree.omsProject.service;
+
+public class CampusMindServiceImpl {
+
+}

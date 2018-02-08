@@ -1,0 +1,62 @@
+package com.mindtree.easybucks.signup.service;
+
+ 
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.mindtree.easybucks.signup.dao.UserDao;
+import com.mindtree.easybucks.signup.dto.SignUpDto;
+import com.mindtree.easybucks.signup.entity.User;
+import com.mindtree.easybucks.signup.entity.UserRole;
+import com.mindtree.easybucks.signup.service.EasyService.UserService;
+ 
+@Service
+@Transactional
+public class UserServiceImp implements UserService {
+ 
+	@Autowired
+	private UserDao userDao;
+	
+	public boolean adduser(SignUpDto signUpDto) {
+		try{
+			User user=new User();
+			UserRole userRole=new UserRole();
+			user.setUserName(signUpDto.getUserName());
+			user.setUserEmail(signUpDto.getUserEmail());
+			user.setUserPassword(signUpDto.getUserPassword());
+			String role=signUpDto.getUserRole();
+			int roleId=0;
+			if(role.equals("admin"))
+				roleId=1;
+			if(role.equals("advisor"))
+				roleId=2;
+			if(role.equals("investor"))
+				roleId=3;
+			userRole.setRoleId(roleId);
+			user.setUserRole(userRole);
+			user.setUserIncome(0);
+			user.setUserPhone(0);
+			userDao.adduser(user);
+			return true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return false;		
+	}
+
+	public List<User> getUsers() {
+		try{
+			return userDao.getUser();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	public User getUserById(int userId){
+		return userDao.getUserById(userId);
+	}
+}

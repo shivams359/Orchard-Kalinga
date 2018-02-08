@@ -1,0 +1,35 @@
+package com.mindtree.CoreJavaAssignment;
+
+import java.util.Scanner;
+
+public class matrixArrangement {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter the no. of rows in matrix");
+		int row = scan.nextInt();
+		System.out.println("enter the no. of columns in matrix");
+		int coloumn = scan.nextInt();
+		int [][] matrix=new int[row][coloumn];
+		System.out.println("eneter a matrix ");	
+		for(int i=0;i<row;i++){
+			for(int j=0;j<coloumn;j++){
+				matrix[i][j]=scan.nextInt();
+				}
+		}
+		arrangeElements(int[][] matrix);
+	}
+	public static int [] arrangeElements(int[][] inputArray) { 
+		 ArrayList array = new ArrayList();
+		 for(int i=0;i<row;i++){
+				for(int j=0;j<coloumn;j++){
+					array.add(matrix[i][j]);
+					}
+			}
+		 for(int i=0;i<array.length;i++){
+		 System.out.println(array[i]);
+		 }
+		return array;
+		}
+
+}

@@ -1,0 +1,20 @@
+package com.mindtree.omsProject.service;
+
+import java.util.List;
+
+import com.mindtree.omsProject.entity.Track;
+import com.mindtree.omsProject.service.OmsProjectService.TrackService;
+
+public class TrackServiceImpl implements TrackService{
+
+	public boolean addtrack(Track track) {
+		
+		return false;
+	}
+
+	public List<Track> gettrack() {
+		
+		return null;
+	}
+
+}

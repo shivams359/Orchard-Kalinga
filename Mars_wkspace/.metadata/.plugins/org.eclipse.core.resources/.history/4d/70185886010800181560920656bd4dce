@@ -1,0 +1,20 @@
+package com.mindtree.omsProject.dao.DaoImpl;
+
+import java.util.List;
+
+import com.mindtree.omsProject.dao.CampusMindDao;
+import com.mindtree.omsProject.entity.CampusMind;
+
+public class CampusMindDaoImpl implements CampusMindDao {
+
+	public boolean addcampusmind(CampusMind campusMind) {
+		
+		return false;
+	}
+
+	public List<CampusMind> getcampusmind() {
+	
+		return null;
+	}
+
+}

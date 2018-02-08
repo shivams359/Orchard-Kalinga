@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<context:component-scan base-package="com.mindtree.songs.controller" />
+	<context:annotation-config />
+	<mvc:annotation-driven>
+		<!-- <mvc:message-converters register-defaults="false">
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+			<bean
+				class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />
+		</mvc:message-converters> -->
+	</mvc:annotation-driven>
+	
+
+
+	
+<!-- 	<mvc:cors>
+   <mvc:mapping path="/*"
+	allowed-origins="http://localhost:8080"
+		allowed-methods="POST, GET, PUT, OPTIONS, DELETE"
+		allowed-headers="X-Auth-Token, Content-Type"
+		exposed-headers="custom-header1, custom-header2"
+		allow-credentials="false" 
+		max-age="4800"
+		/> -->
+
+  
+
+
+
+
+    <!-- <mvc:default-servlet-handler />
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="prefix"> <value>/WEB-INF/views</value> </property> <property 
+		name="suffix"> <value>.jsp</value> </property> </bean>
+		 -->
+		
+		
+	<!-- <mvc:default-servlet-handler /> -->
+	<!-- Interceptor -->
+	<!--Commented all the controllers except User and WasteUpload -->
+	<!-- <bean id="voteController" class="com.mindtree.orchard.cms.controller.VoteController" 
+		/> <bean id="feedbackController" class="com.mindtree.orchard.cms.controller.FeedbackController" 
+		/> <bean id="menuUploadController" class="com.mindtree.orchard.cms.controller.MenuUploadController" 
+		/> <bean id="downloadController" class="com.mindtree.orchard.cms.controller.DownloadController" 
+		/> -->
+
+
+
+
+	<!-- <bean name="proxyCreator" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"> 
+		<property name="proxyTargetClass"> <value>true</value> </property> <property 
+		name="beanNames"> <list> <value>*Controller</value> </list> </property> <property 
+		name="interceptorNames"> <list> <value>performanceInterceptor</value> </list> 
+		</property> </bean> -->
+	<!-- added here -->
+	<!-- <mvc:annotation-driven /> -->
+	<!-- Scan some API controllers -->
+	<!-- <context:component-scan base-package="com.mindtree.orchard.kmart.controller" 
+		/> -->
+	<!-- Enables swgger ui -->
+	<!-- <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/" 
+		/> <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/" 
+		/> Include a swagger configuration <bean name="/applicationSwaggerConfig" 
+		class="com.mindtree.config.ApplicationSwaggerConfig" /> -->
+		
+		
+		
+</beans>

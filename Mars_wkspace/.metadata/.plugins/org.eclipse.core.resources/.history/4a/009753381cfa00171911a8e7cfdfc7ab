@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<annotation-driven></annotation-driven>
+	<context:annotation-config />
+
+	<context:component-scan base-package="com.mindtree.easybucks.profile.controller" />
+	<context:component-scan base-package="com.mindtree.easybucks.products.controller" />
+	<context:component-scan base-package="com.mindtree.easybucks.login.controller" />
+	<context:component-scan base-package="com.mindtree.easybucks.products.dao" />
+	<context:component-scan base-package="com.mindtree.easybucks.products.service" />
+	<context:component-scan base-package="com.mindtree.easybucks.signup.controller" />
+	<context:component-scan base-package="com.mindtree.easybucks.signup.dao" />
+	<context:component-scan base-package="com.mindtree.easybucks.signup.service" />
+	<context:component-scan
+		base-package="com.mindtree.easybucks.seekassistance.controller" />
+	<context:component-scan base-package="com.mindtree.easybucks.seekassistance.dao" />
+	<context:component-scan
+		base-package="com.mindtree.easybucks.seekassistance.services" />
+	<context:component-scan base-package="com.mindtree.easybucks.watchlist.services" />
+	<context:component-scan base-package="com.mindtree.easybucks.watchlist.dao" />
+	<context:component-scan base-package="com.mindtree.easybucks.watchlist.controller" />
+	<context:component-scan base-package="com.mindtree.easybucks.review.controller" />
+	<context:component-scan base-package="com.mindtree.easybucks.review.dao" />
+	<context:component-scan base-package="com.mindtree.easybucks.review.service" />
+	<context:component-scan base-package="com.mindtree.easybucks.review.entity" />
+	<context:component-scan base-package="com.mindtree.easybucks.review.dto" />
+
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"> 
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" /> <beans:property 
+		name="url" value="jdbc:mysql://mongosql1.eastus2.cloudapp.azure.com/easybucks_qa_dev" />
+		 <beans:property name="username" value="sqluser20" />
+		 <beans:property name="password" value="Mind@1234$" /> 
+	</beans:bean> 
+		
+	<!-- Hibernate 5 SessionFactory Bean definition -->
+	<beans:bean id="hibernate5AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="annotatedClasses">
+			<beans:list>
+
+				
+
+				<beans:value>com.mindtree.easybucks.signup.entity.User
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.signup.entity.UserRole
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.products.entities.Banking
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.products.entities.Bullions
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.products.entities.MutualFunds
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.products.entities.Stocks
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.seekassistance.entities.SeekAssistance
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.watchlist.entities.MutualFundWatchlist
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.watchlist.entities.StockWatchlist
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.watchlist.entities.BullionWatchlist
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.watchlist.entities.BankingWatchlist
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.review.entity.WriteReviewBanking
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.review.entity.WriteReviewBullion
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.review.entity.WriteReviewMf
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.review.entity.WriteReviewStocks
+				</beans:value>
+				<beans:value>com.mindtree.easybucks.review.dto.Users</beans:value>
+			</beans:list>
+		</beans:property>
+
+		<beans:property name="hibernateProperties">
+			<beans:props>
+				<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+				</beans:prop>
+				<beans:prop key="hibernate.show_sql">true</beans:prop>
+				<beans:prop key="hibernate.hbm2ddl.auto">update</beans:prop>
+
+			</beans:props>
+
+		</beans:property>
+
+	</beans:bean>
+
+
+	<!-- Profile Beans -->
+	<beans:bean id="profileDao"
+		class="com.mindtree.easybucks.profile.dao.daoImpl.ProfileDaoImp">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="profileSerivce"
+		class="com.mindtree.easybucks.profile.services.servicesImpl.ProfileServiceImpl">
+		<beans:property name="profileDao" ref="profileDao"></beans:property>
+	</beans:bean>
+	<!-- Stocks Beans -->
+	<beans:bean id="stocksDao"
+		class="com.mindtree.easybucks.products.dao.daoImpl.StocksDaoImpl">
+
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="stocksService"
+		class="com.mindtree.easybucks.products.service.serviceImpl.StocksServiceImpl">
+		<beans:property name="stocksDao" ref="stocksDao"></beans:property>
+	</beans:bean>
+
+	<!-- Mutual Funds Beans -->
+	<beans:bean id="mutualFundsDao"
+		class="com.mindtree.easybucks.products.dao.daoImpl.MutualFundsDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="mutualFundsService"
+		class="com.mindtree.easybucks.products.service.serviceImpl.MutualFundsServiceImpl">
+		<beans:property name="mutualFundsDao" ref="mutualFundsDao"></beans:property>
+	</beans:bean>
+
+	<!-- Bullions Beans -->
+	<beans:bean id="bullionsDao"
+		class="com.mindtree.easybucks.products.dao.daoImpl.BullionsDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="bullionsService"
+		class="com.mindtree.easybucks.products.service.serviceImpl.BullionsServiceImpl">
+		<beans:property name="bullionsDao" ref="bullionsDao"></beans:property>
+	</beans:bean>
+
+
+	<!-- Banking Beans -->
+	<beans:bean id="bankingDao"
+		class="com.mindtree.easybucks.products.dao.daoImpl.BankingDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="bankingService"
+		class="com.mindtree.easybucks.products.service.serviceImpl.BankingServiceImpl">
+		<beans:property name="bankingDao" ref="bankingDao"></beans:property>
+	</beans:bean>
+
+	<!-- SignUp Beans -->
+	<beans:bean id="userRoleDao"
+		class="com.mindtree.easybucks.signup.dao.DaoImp.UserRoleDaoImpl">
+
+	</beans:bean>
+
+	<beans:bean id="userRoleService"
+		class="com.mindtree.easybucks.signup.service.UserRoleServiceImpl">
+
+	</beans:bean>
+
+	<beans:bean id="userDao"
+		class="com.mindtree.easybucks.signup.dao.DaoImp.UserDaoImpl">
+
+	</beans:bean>
+
+	<beans:bean id="userService"
+		class="com.mindtree.easybucks.signup.service.UserServiceImp">
+
+	</beans:bean>
+
+
+
+	<!-- LogIn Beans -->
+	<beans:bean id="logInDao"
+		class="com.mindtree.easybucks.login.dao.daoImpl.LogInDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="logInService"
+		class="com.mindtree.easybucks.login.services.serviceImpl.LogInServiceImpl">
+		<beans:property name="logInDao" ref="logInDao"></beans:property>
+	</beans:bean>
+
+
+	<!-- SeekAssistance Service Beans -->
+	<beans:bean id="seekAssistanceDAO"
+		class="com.mindtree.easybucks.seekassistance.dao.daoImpl.SeekAssistanceDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="seekAssistanceService"
+		class="com.mindtree.easybucks.seekassistance.services.servicesImpl.SeekAssistanceServiceImpl">
+		<beans:property name="seekAssistanceDAO" ref="seekAssistanceDAO"></beans:property>
+	</beans:bean>
+
+	<!-- Watchlist Beans -->
+	<beans:bean id="mutualFundWatchlistDao"
+		class="com.mindtree.easybucks.watchlist.dao.mutualfund.MutualFundWatchlistDaoImp">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="mutualFundWatchlistService"
+		class="com.mindtree.easybucks.watchlist.services.mutualfundservice.MutualFundWatchlistServiceImp">
+	</beans:bean>
+
+	<beans:bean id="stockWatchlistDao"
+		class="com.mindtree.easybucks.watchlist.dao.stockmarket.StockWatchlistDaoImp">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="stockWatchlistService"
+		class="com.mindtree.easybucks.watchlist.services.stockmarketservice.StockWatchlistServiceImp">
+	</beans:bean>
+
+	<beans:bean id="bankingWatchlistDao"
+		class="com.mindtree.easybucks.watchlist.dao.banking.BankingWatchlistDaoImp">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="bankingWatchlistService"
+		class="com.mindtree.easybucks.watchlist.services.bankingservice.BankingWatchlistServiceImp">
+	</beans:bean>
+
+	<beans:bean id="bullionWatchlistDao"
+		class="com.mindtree.easybucks.watchlist.dao.bullion.BullionWatchlistDaoImp">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="bullionWatchlistService"
+		class="com.mindtree.easybucks.watchlist.services.bullionservice.BullionWatchlistServiceImp">
+	</beans:bean>
+
+	<!-- Review Service Beans -->
+	<beans:bean id="reviewProducts"
+		class="com.mindtree.easybucks.review.dao.ReviewProductsImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="reviewProductsService"
+		class="com.mindtree.easybucks.review.service.ReviewProductsServicesImpl">
+		<beans:property name="reviewProducts" ref="reviewProducts"></beans:property>
+	</beans:bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<beans:bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<beans:property name="sessionFactory"
+			ref="hibernate5AnnotatedSessionFactory" />
+	</beans:bean>
+</beans:beans>
+	
+	
+

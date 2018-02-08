@@ -1,0 +1,108 @@
+package com.mindtree.easybucks.logintestcases;
+
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.Date;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.mindtree.easybucks.login.dao.LogInDao;
+import com.mindtree.easybucks.login.exceptions.daoexceptions.LogInDaoImplException;
+import com.mindtree.easybucks.login.services.LogInService;
+import com.mindtree.easybucks.signup.entity.User;
+import com.mindtree.easybucks.signup.entity.UserRole;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:spring/root-app-context.xml")
+public class LogInTestCases {
+	
+	@Autowired
+	private LogInService logInServ;
+	
+	@Autowired
+	private LogInDao logInDao;
+	
+	
+	@Test
+	public void checkAdmin(){
+		User user = new User();
+		user.setUserCity("Bhubneshwar");
+		user.setUserDob("15/01/2018");
+		user.setUserEmail("easyBucks@mindtree.com");
+		user.setUserId(1);
+		user.setUserIncome(30000);
+		user.setUserName("Abhishek");
+		user.setUserOccupation("Engineer");
+		user.setUserPassword("easybucks");
+		user.setUserPhone(987654321);
+		UserRole userRole  = new UserRole();
+		userRole.setRoleId(1);
+		userRole.setRoleName("admin");
+		user.setUserRole(userRole);
+		try{
+		assertEquals(user.toString(), (logInDao.getUserByEmail("easyBucks@mindtree.com")).toString() );
+		}
+		catch(LogInDaoImplException logDaoException){
+			
+		}
+	}
+	
+	@Test
+	public void checkAdvisor(){
+
+		User user = new User();
+		user.setUserCity("Bhubneshwar");
+		user.setUserDob("15/01/2018");
+		user.setUserEmail("Vinay.Gubbi@mindtree.com");
+		user.setUserId(2);
+		user.setUserIncome(50000);
+		user.setUserName("Vinay Gubbi");
+		user.setUserOccupation("Engineer");
+		user.setUserPassword("vinay");
+		user.setUserPhone(987654321);
+		UserRole userRole  = new UserRole();
+		userRole.setRoleId(2);
+		userRole.setRoleName("advisor");
+		user.setUserRole(userRole);
+		
+		try{
+		assertEquals(user.toString(), (logInDao.getUserByEmail("vinay.gubbi@mindtree.com")).toString() );
+		}
+		catch(LogInDaoImplException logDaoException){
+			
+		}
+	}
+	
+	@Test
+	public void checkUser(){
+
+
+		User user = new User();
+		user.setUserCity("Bhubneshwar");
+		user.setUserDob("15/01/2018");
+		user.setUserEmail("kalyani.sharma@mindtree.com");
+		user.setUserId(3);
+		user.setUserIncome(22000);
+		user.setUserName("Kalyani Sharma");
+		user.setUserOccupation("Engineer");
+		user.setUserPassword("kalyani");
+		user.setUserPhone(987654321);
+		UserRole userRole  = new UserRole();
+		userRole.setRoleId(3);
+		userRole.setRoleName("User");
+		user.setUserRole(userRole);
+		
+		try{
+		assertEquals(user.toString(), (logInDao.getUserByEmail("kalyani.sharma@mindtree.com")).toString() );
+		}
+		catch(LogInDaoImplException logDaoException){
+			
+		}
+	}
+
+}

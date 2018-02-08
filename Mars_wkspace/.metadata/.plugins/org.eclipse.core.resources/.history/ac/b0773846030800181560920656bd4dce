@@ -1,0 +1,20 @@
+package com.mindtree.omsProject.dao.DaoImpl;
+
+import java.util.List;
+
+import com.mindtree.omsProject.dao.TrackDao;
+import com.mindtree.omsProject.entity.Track;
+
+public class TrackDaoImpl implements TrackDao {
+
+	public boolean addtrack(Track track) {
+		
+		return false;
+	}
+
+	public List<Track> gettrack() {
+		
+		return null;
+	}
+
+}

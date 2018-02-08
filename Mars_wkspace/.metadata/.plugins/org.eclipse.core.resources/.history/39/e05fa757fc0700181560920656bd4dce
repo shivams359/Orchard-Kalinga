@@ -1,0 +1,12 @@
+package com.mindtree.omsProject.dao;
+
+import java.util.List;
+
+import com.mindtree.omsProject.entity.Capability;
+
+public interface CapabilityDao {
+	
+	public boolean addcapability(Capability capability);
+	public List<Capability> getCapability();
+
+}

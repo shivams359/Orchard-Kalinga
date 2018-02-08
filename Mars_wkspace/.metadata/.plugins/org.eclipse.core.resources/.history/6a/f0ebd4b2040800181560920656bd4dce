@@ -1,0 +1,20 @@
+package com.mindtree.omsProject.service;
+
+import java.util.List;
+
+import com.mindtree.omsProject.entity.Capability;
+import com.mindtree.omsProject.service.OmsProjectService.CapabilityService;
+
+public class CapabilityServiceImpl implements CapabilityService {
+
+	public boolean addcapability(Capability capability) {
+		
+		return false;
+	}
+
+	public List<Capability> getcapability() {
+		
+		return null;
+	}
+
+}

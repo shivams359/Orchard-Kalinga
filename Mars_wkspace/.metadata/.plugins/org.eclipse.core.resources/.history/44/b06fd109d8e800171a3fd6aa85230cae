@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>usersignup</title>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+<!--Pre-fetching is a way of hinting to the browser about resources that are definitely going to or might be used in the future-->
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
+<link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
+</head>
+<body>
+<center>
+<form action="add">
+<input type="text" name="name" placeholder="name"><br>
+ <input type="text" name="phone" placeholder="phone"><br>
+  <input type="text" name="email" placeholder="email"><br>
+  <input type="text" name="password" placeholder="password"><br>
+   <input type="text" name="confirmpassword" placeholder="confirmpassword"><br>
+   <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+    <select name="role" class="form-control selectpicker">
+      <option value="">Select your Role/Roles</option>
+      <option>Admin</option>
+      <option>Investors</option>
+      <option >Advisors</option>
+    </select>
+  </div>
+   <input type="submit" value="signup">
+</body>
+</html>
